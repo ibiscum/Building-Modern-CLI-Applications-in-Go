@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/marianina8/audiofile/models"
+	"Chapter03/audiofile/models"
 
 	"github.com/dhowden/tag"
 )

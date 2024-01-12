@@ -7,7 +7,8 @@ import (
 	"flag"
 	"fmt"
 
-	metadataService "github.com/marianina8/audiofile/services/metadata"
+	metadataService "Chapter04/audiofile/services/metadata"
+
 	"github.com/spf13/cobra"
 )
 

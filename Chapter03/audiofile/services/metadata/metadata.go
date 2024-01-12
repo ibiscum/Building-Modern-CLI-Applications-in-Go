@@ -1,8 +1,8 @@
 package metadata
 
 import (
-	"github.com/marianina8/audiofile/internal/interfaces"
-	"github.com/marianina8/audiofile/storage"
+	"Chapter03/audiofile/internal/interfaces"
+	"Chapter03/audiofile/storage"
 
 	"fmt"
 	"net/http"
