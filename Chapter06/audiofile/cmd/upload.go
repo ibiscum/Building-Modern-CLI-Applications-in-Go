@@ -10,7 +10,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/marianina8/audiofile/utils"
+	"Chapter06/audiofile/utils"
+
 	"github.com/spf13/cobra"
 )
 

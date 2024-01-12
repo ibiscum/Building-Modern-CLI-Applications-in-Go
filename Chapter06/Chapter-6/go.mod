@@ -1,4 +1,4 @@
-module github.com/marianina8/Chapter-6
+module Chapter06/Chapter-6
 
 go 1.19
 

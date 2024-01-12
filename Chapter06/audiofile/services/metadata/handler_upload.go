@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/marianina8/audiofile/extractors/tags"
-	"github.com/marianina8/audiofile/extractors/transcript"
-	"github.com/marianina8/audiofile/models"
+	"Chapter06/audiofile/extractors/tags"
+	"Chapter06/audiofile/extractors/transcript"
+	"Chapter06/audiofile/models"
 )
 
 func (m *MetadataService) uploadHandler(res http.ResponseWriter, req *http.Request) {

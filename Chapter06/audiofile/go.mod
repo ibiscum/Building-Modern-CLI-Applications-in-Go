@@ -1,4 +1,4 @@
-module github.com/marianina8/audiofile
+module Chapter06/audiofile
 
 go 1.14
 
