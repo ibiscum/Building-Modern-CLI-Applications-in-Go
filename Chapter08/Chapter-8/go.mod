@@ -1,4 +1,4 @@
-module github.com/marianina8/Chapter-8
+module Chapter08/Chapter-8
 
 go 1.19
 
