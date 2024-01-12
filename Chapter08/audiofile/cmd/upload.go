@@ -11,7 +11,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/marianina8/audiofile/utils"
+	"Chapter08/audiofile/utils"
+
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

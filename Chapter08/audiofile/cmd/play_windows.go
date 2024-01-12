@@ -3,7 +3,7 @@
 package cmd
 
 import (
-	"github.com/marianina8/audiofile/utils"
+	"fmt"
 	"os/exec"
 )
 

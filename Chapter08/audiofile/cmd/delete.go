@@ -9,7 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/marianina8/audiofile/utils"
+	"Chapter08/audiofile/utils"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

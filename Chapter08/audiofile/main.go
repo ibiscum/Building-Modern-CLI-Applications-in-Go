@@ -1,6 +1,6 @@
 package main
 
-import "github.com/marianina8/audiofile/cmd"
+import "Chapter08/audiofile/cmd"
 
 func main() {
 	cmd.Configure()

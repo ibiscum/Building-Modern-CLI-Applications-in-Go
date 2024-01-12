@@ -3,8 +3,11 @@
 package cmd
 
 import (
-	"fmt"
 	"os/exec"
+
+	"Chapter08/audiofile/utils"
+
+	"github.com/pterm/pterm"
 )
 
 func play(audiofilePath string) error {
@@ -15,7 +18,8 @@ func play(audiofilePath string) error {
 	spinnerInfo := &pterm.SpinnerPrinter{}
 	if utils.IsaTTY() {
 		spinnerInfo, _ = pterm.DefaultSpinner.Start("Enjoy the music...")
-	}	err := cmd.Wait()
+	}
+	err := cmd.Wait()
 	if err != nil {
 		return err
 	}

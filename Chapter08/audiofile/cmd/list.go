@@ -8,8 +8,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/marianina8/audiofile/models"
-	"github.com/marianina8/audiofile/utils"
+	"Chapter08/audiofile/models"
+	"Chapter08/audiofile/utils"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

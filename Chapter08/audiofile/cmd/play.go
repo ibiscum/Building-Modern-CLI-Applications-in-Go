@@ -3,7 +3,8 @@ package cmd
 import (
 	"encoding/json"
 
-	"github.com/marianina8/audiofile/models"
+	"Chapter08/audiofile/models"
+
 	"github.com/spf13/cobra"
 )
 
