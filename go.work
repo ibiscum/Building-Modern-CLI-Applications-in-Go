@@ -3,4 +3,5 @@ go 1.21.5
 use (
 	./Chapter03/audiofile
 	./Chapter04/audiofile
+	./Chapter05/application
 )

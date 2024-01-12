@@ -1,4 +1,4 @@
-module github.com/marianina8/application
+module Chapter05/application
 
 go 1.19
 
