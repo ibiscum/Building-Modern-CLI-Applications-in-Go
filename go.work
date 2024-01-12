@@ -5,4 +5,5 @@ use (
 	./Chapter04/audiofile
 	./Chapter05/application
 	./Chapter06/audiofile
+	./Chapter07/audiofile
 )

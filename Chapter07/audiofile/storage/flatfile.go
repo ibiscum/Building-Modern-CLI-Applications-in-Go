@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/marianina8/audiofile/models"
+	"Chapter07/audiofile/models"
 
 	"github.com/google/uuid"
 )
