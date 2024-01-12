@@ -14,7 +14,7 @@ import (
 func Extract(m *models.Audio) error {
 	apiKey := os.Getenv("ASSEMBLYAI_API_KEY")
 	if apiKey == "" {
-		fmt.Println("missing ASSEMBLYAI_API_KEY.  Skipping transcript exraction")
+		fmt.Println("missing ASSEMBLYAI_API_KEY. Skipping transcript exraction")
 		return nil
 	}
 	const UPLOAD_URL = "https://api.assemblyai.com/v2/upload"
@@ -22,7 +22,7 @@ func Extract(m *models.Audio) error {
 	// Load file
 	data, err := os.ReadFile(m.Path)
 	if err != nil {
-		return err
+		log.Fatalln(err)
 	}
 
 	// Setup HTTP client and set header
@@ -30,11 +30,10 @@ func Extract(m *models.Audio) error {
 	req, _ := http.NewRequest("POST", UPLOAD_URL, bytes.NewBuffer(data))
 	req.Header.Set("authorization", apiKey)
 	res, err := client.Do(req)
-	defer res.Body.Close()
-
 	if err != nil {
 		log.Fatalln(err)
 	}
+	defer res.Body.Close()
 
 	// Decode json and store it in a map
 	var result map[string]interface{}
@@ -99,6 +98,7 @@ func Extract(m *models.Audio) error {
 
 			break
 		} else {
+			fmt.Println("Something else happened...")
 		}
 	}
 
