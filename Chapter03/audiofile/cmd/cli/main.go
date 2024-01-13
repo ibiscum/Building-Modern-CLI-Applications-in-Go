@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"Chapter03/audiofile/cmd/cli/command"
-	"Chapter03/audiofile/internal/interfaces"
+	"chapter03.com/audiofile/cmd/cli/command"
+	"chapter03.com/audiofile/internal/interfaces"
 )
 
 func main() {

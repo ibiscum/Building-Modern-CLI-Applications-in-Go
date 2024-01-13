@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"Chapter03/audiofile/models"
+	"chapter03.com/audiofile/models"
 
 	"github.com/google/uuid"
 )

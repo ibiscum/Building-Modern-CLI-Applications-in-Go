@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"Chapter03/audiofile/internal/interfaces"
+	"chapter03.com/audiofile/internal/interfaces"
 )
 
 func NewUploadCommand(client interfaces.Client) *UploadCommand {

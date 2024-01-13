@@ -1,8 +1,8 @@
 package metadata
 
 import (
-	"Chapter03/audiofile/internal/interfaces"
-	"Chapter03/audiofile/storage"
+	"chapter03.com/audiofile/internal/interfaces"
+	"chapter03.com/audiofile/storage"
 
 	"fmt"
 	"net/http"

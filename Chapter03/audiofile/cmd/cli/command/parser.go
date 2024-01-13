@@ -3,7 +3,7 @@ package command
 import (
 	"fmt"
 
-	"Chapter03/audiofile/internal/interfaces"
+	"chapter03.com/audiofile/internal/interfaces"
 )
 
 type Parser struct {

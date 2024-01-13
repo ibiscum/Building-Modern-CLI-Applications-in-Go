@@ -98,6 +98,7 @@ func Extract(m *models.Audio) error {
 
 			break
 		} else {
+			fmt.Println("Something else happened...")
 		}
 	}
 

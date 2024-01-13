@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"Chapter03/audiofile/internal/interfaces"
+	"chapter03.com/audiofile/internal/interfaces"
 )
 
 type MockClient struct {
