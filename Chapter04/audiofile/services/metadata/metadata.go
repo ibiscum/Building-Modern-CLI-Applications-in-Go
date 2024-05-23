@@ -1,8 +1,8 @@
 package metadata
 
 import (
-	"Chapter04/audiofile/internal/interfaces"
-	"Chapter04/audiofile/storage"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04/audiofile/storage"
 
 	"fmt"
 	"net/http"

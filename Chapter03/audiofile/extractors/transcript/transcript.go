@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"chapter03.com/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/models"
 )
 
 func Extract(m *models.Audio) error {

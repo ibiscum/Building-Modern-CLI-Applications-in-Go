@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"chapter03.com/audiofile/cmd/cli/command"
-	"chapter03.com/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/cmd/cli/command"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/internal/interfaces"
 )
 
 func main() {

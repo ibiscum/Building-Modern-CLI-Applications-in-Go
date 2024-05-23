@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"chapter03.com/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/internal/interfaces"
 )
 
 func NewUploadCommand(client interfaces.Client) *UploadCommand {

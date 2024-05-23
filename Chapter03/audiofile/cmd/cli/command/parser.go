@@ -3,7 +3,7 @@ package command
 import (
 	"fmt"
 
-	"chapter03.com/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/internal/interfaces"
 )
 
 type Parser struct {

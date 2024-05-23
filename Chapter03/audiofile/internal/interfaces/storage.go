@@ -1,7 +1,7 @@
 package interfaces
 
 import (
-	"chapter03.com/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/models"
 )
 
 type Storage interface {

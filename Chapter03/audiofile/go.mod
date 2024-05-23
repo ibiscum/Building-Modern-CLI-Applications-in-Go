@@ -1,8 +1,8 @@
-module chapter03.com/audiofile
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile
 
 go 1.21.5
 
 require (
-	github.com/dhowden/tag v0.0.0-20230630033851-978a0926ee25
-	github.com/google/uuid v1.5.0
+	github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8
+	github.com/google/uuid v1.6.0
 )

@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 
-	"chapter03.com/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/internal/interfaces"
 )
 
 func NewListCommand(client interfaces.Client) *ListCommand {
