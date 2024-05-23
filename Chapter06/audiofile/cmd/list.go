@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"Chapter06/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06/audiofile/utils"
 
 	"github.com/spf13/cobra"
 )
@@ -16,7 +16,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all audio files",
-	Long: `List audio file metadata in JSON format.  Data includes id, tags, 
+	Long: `List audio file metadata in JSON format.  Data includes id, tags,
 and transcript if available.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		client := &http.Client{

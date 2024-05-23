@@ -31,7 +31,7 @@ func init() {
 }
 
 func SetupInterruptHandler() {
-	c := make(chan os.Signal)
+	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt, syscall.SIGINT)
 	go func() {
 		<-c
@@ -41,8 +41,8 @@ func SetupInterruptHandler() {
 }
 
 func SetupStopHandler() {
-	c := make(chan os.Signal)
-	signal.Notify(c, os.Interrupt, syscall.SIGTSTP)
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt, syscall.SIGSTOP)
 	go func() {
 		<-c
 		fmt.Println("\r- Wake up! Stopped sleeping.")

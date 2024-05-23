@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"time"
 
-	"Chapter06/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06/audiofile/utils"
 
 	"github.com/spf13/cobra"
 )

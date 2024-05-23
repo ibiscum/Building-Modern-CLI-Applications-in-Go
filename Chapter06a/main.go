@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/marianina8/Chapter-6/examples"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06a/examples"
 )
 
 func main() {

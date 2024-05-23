@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"Chapter06/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06/audiofile/models"
 
 	"github.com/dhowden/tag"
 )

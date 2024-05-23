@@ -1,10 +1,8 @@
 package examples
 
 import (
-	"encoding/json"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 )
 
@@ -93,7 +91,7 @@ var (
 	often abbreviated as [a1, . . . , an+1].
 	[aj,aj+1], j=1
 	77 o??
-	
+
 	1.2. FURTHER TOPOLOGY OF THE PLANE 3 1.2 Further Topology of the Plane
 	Recall that two subsets S1 and S2 of a metric space are separated if there are open sets G1 ⊇S1 andG2 ⊇S2 suchthatG1∩S2 =G2∩S1 =∅,theemptyset. Asetis connected iff it cannot be written as the union of two nonempty separated sets. An open (respectively closed) set is connected iff it is not the union of two nonempty disjoint open (respectively closed) sets.
 	1.2.1 Definition
@@ -107,7 +105,7 @@ var (
 	Thus Ω1 and Ω2 are disjoint open sets, and Ω1 ̸= ∅ because a ∈ Ω1. Since Ω is connected we must have Ω2 = ∅, so that Ω1 = Ω. Therefore Ω is polygonally connected. The converse assertion follows because any polygonally connected set is connected. ♣
 	1.2.4Definitions
 	A region in C is an open connected subset of C. A set E ⊆ C is convex if for each pair of points a,b ∈ E, we have [a,b] ⊆ E; E is starlike if there is a point a ∈ E (called a star center) such that [a,z] ⊆ E for each z ∈ E. Note that any nonempty convex set is starlike and that starlike sets are polygonally connected.
-	
+
 	4 CHAPTER 1. INTRODUCTION 1.3 Analytic Functions
 	1.3.1 Definition
 	Let f : Ω → C, where Ω is a subset of C. We say that f is complex-differentiable at the pointz0 ∈Ωifforsomeλ∈Cwehave
@@ -134,7 +132,7 @@ var (
 	(f1f2)′ =f1f2′ +f1′f2, 1 f2
 	f f′ −f f′ = 2 1 1 2.
 	f2
-	 
+
 	1.4. REAL-DIFFERENTIABILITY AND THE CAUCHY-RIEMANN EQUATIONS 5 The proofs are identical to the corresponding proofs for functions from R to R.
 	Since d (z) = 1 by direct computation, we may use the rule for differentiating a dz
 	product (just as in the real case) to obtain
@@ -157,7 +155,7 @@ var (
 	(Note that f(zn) ̸= f(z0) since f is 1-1 and zn ̸= z0.) By continuity of f at z0, the expression in brackets approaches g′(f(z0)) as n → ∞. Since g′(f(z0)) ̸= 0, the result follows. ♣
 	1.4Real-DifferentiabilityandtheCauchy-RiemannEqua- tions
 	Let f : Ω → C, and set u = Ref,v = Imf. Then u and v are real-valued functions on Ω and f = u + iv. In this section we are interested in the relation between f and its real and imaginary parts u and v. For example, f is continuous at a point z0 iff both u and v are continuous at z0. Relations involving derivatives will be more significant for us, and for this it is convenient to be able to express the idea of differentiability of real-valued function of two real variables by means of a single formula, without having to consider partial derivatives separately. We do this by means of a condition analogous to (5) of (1.3.1).
-	
+
 	6 CHAPTER 1. INTRODUCTION Convention
 	From now on, Ω will denote an open subset of C, unless otherwise specified. 1.4.1 Definition
 	Letg:Ω→R. Wesaythatgisreal-differentiableatz0 =x0+iy0 ∈Ωifthereexist real numbers A and B, and real functions ε1 and ε2 defined on a neighborhood of (x0, y0), such that ε1 and ε2 are continuous at (x0, y0), ε1(x0, y0) = ε2(x0, y0) = 0, and
@@ -181,7 +179,7 @@ var (
 	u(x, y) = u(x0, y0) + (x − x0)[Re f′(z0) + ε1(x, y)]
 	+ (y − y0)[− Im f′(z0) − ε2(x, y)].
 	∂x ∂x ∂y ∂y
-	
+
 	1.5. THE EXPONENTIAL FUNCTION 7 It follows that u is real-differentiable at (x0,y0) with
 	∂u(x0,y0) = Ref′(z0), ∂u(x0,y0) = −Imf′(z0). (2) ∂x ∂y
 	Similarly, take imaginary parts of both sides of (1) to obtain
@@ -209,7 +207,7 @@ var (
 	z − z0
 	1.5 The Exponential Function
 	In this section we extend the domain of definition of the exponential function (as normally encountered in calculus) from the real line to the entire complex plane. If we require that the basic rules for manipulating exponentials carry over to the extended function, there is
-	
+
 	8 CHAPTER 1. INTRODUCTION only one possible way to define exp(z) for z = x+iy ∈ C. Consider the following sequence
 	of “equations” that exp should satisfy:
 	exp(z) = exp(x + iy)
@@ -232,7 +230,7 @@ var (
 	on all of Ω.
 	After some additional properties of analytic functions have been developed, we will be able to prove that the real and imaginary parts of an analytic function on Ω are harmonic on Ω. The following theorem is a partial converse to that result, namely that a harmonic on Ω is locally the real part of an analytic function.
 	y5 􏲀􏲂
-	
+
 	1.6. HARMONIC FUNCTIONS 9 1.6.2 Theorem
 	Suppose u : Ω → R is harmonic on Ω, and D is any open disk contained in Ω. Then there exists a function v : D → R such that u + iv is analytic on D.
 	The function v is called a harmonic conjugate of u.
@@ -264,7 +262,7 @@ var (
 	9. Show that the complex field cannot be ordered. That is, there is no subset P ⊆ C of “positive elements” such that
 	(a) P is closed under addition and multiplication. (b)Ifz∈P,thenexactlyoneoftherelationsz∈P, z=0, −z∈P holds.
 	∂ Q . It follows ∂x
-	
+
 	10 CHAPTER 1. INTRODUCTION
 	10. (A characterization of absolute value) Show that there is a unique function α : C → R such that
 	(i) α(x) = x for all real x ≥ 0;

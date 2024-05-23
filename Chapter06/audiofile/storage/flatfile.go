@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"Chapter06/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06/audiofile/models"
 
 	"github.com/google/uuid"
 )
