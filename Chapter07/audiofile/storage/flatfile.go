@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"Chapter07/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter07/audiofile/models"
 
 	"github.com/google/uuid"
 )

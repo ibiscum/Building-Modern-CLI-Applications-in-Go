@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	metadataService "Chapter07/audiofile/services/metadata"
+	metadataService "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter07/audiofile/services/metadata"
 
 	"github.com/spf13/cobra"
 )

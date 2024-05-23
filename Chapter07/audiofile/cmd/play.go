@@ -3,7 +3,7 @@ package cmd
 import (
 	"encoding/json"
 
-	"Chapter07/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter07/audiofile/models"
 
 	"github.com/spf13/cobra"
 )
