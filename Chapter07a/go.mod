@@ -1,5 +1,3 @@
-module github.com/marianina8/Chapter-7
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter07a
 
 go 1.19
-
-require github.com/mitchellh/go-ps v1.0.0

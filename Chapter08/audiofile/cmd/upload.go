@@ -11,7 +11,7 @@ import (
 	"runtime"
 	"time"
 
-	"Chapter08/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter08/audiofile/utils"
 
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
@@ -26,7 +26,7 @@ const (
 var uploadCmd = &cobra.Command{
 	Use:   "upload",
 	Short: "Upload an audio file",
-	Long: `Upload an audio file by passing in the --filename or -f flag followed by the 
+	Long: `Upload an audio file by passing in the --filename or -f flag followed by the
 filepath of the audiofile.`,
 	SuggestFor: []string{"add"},
 	RunE: func(cmd *cobra.Command, args []string) error {
