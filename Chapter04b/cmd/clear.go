@@ -6,7 +6,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/marianina8/Chapter-4-Demo/storage"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04b/storage"
 	"github.com/spf13/cobra"
 )
 

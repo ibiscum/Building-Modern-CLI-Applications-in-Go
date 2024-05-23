@@ -1,4 +1,4 @@
-module Chapter05/application
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter05/application
 
 go 1.19
 

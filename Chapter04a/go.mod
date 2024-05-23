@@ -1,4 +1,4 @@
-module audiofile-cli
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04a
 
 go 1.17
 

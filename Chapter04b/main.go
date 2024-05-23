@@ -6,7 +6,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/marianina8/Chapter-4-Demo/cmd"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04b/cmd"
 	"github.com/spf13/viper"
 )
 

@@ -3,7 +3,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "Chapter05/application/cmd"
+import "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter05/application/cmd"
 
 func main() {
 	cmd.Execute()
