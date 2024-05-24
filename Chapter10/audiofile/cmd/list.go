@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/marianina8/audiofile/models"
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -18,7 +18,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all audio files",
-	Long: `List audio file metadata in JSON format.  Data includes id, tags, 
+	Long: `List audio file metadata in JSON format.  Data includes id, tags,
 and transcript if available.`,
 	Example: `audiofile list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -31,13 +31,13 @@ and transcript if available.`,
 		if plainFormat {
 			var audios models.AudioList
 			json.Unmarshal(b, &audios)
-			fmt.Fprintf(cmd.OutOrStdout(), audios.Plain())
+			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}
 		jsonFormat, _ := cmd.Flags().GetBool("json")
 		formatedBytes, err := utils.Print(b, jsonFormat)
 		if err != nil {
-			fmt.Fprintf(cmd.OutOrStdout(), string(formatedBytes))
+			fmt.Fprint(cmd.OutOrStdout(), string(formatedBytes))
 		}
 		return nil
 	},

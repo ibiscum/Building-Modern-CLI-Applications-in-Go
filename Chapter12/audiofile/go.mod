@@ -1,6 +1,6 @@
-module github.com/marianina8/audiofile
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter12/audiofile
 
-go 1.18
+go 1.22.1
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.6

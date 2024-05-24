@@ -9,8 +9,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/marianina8/audiofile/models"
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -61,13 +61,16 @@ var searchCmd = &cobra.Command{
 		if plainFormat {
 			var audios models.AudioList
 			json.Unmarshal(b, &audios)
-			fmt.Fprintf(cmd.OutOrStdout(), audios.Plain())
+			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}
 		jsonFormat, err := cmd.Flags().GetBool("json")
+		if err != nil {
+			return err
+		}
 		formattedBytes, err := utils.Print(b, jsonFormat)
 		if err != nil {
-			fmt.Fprintf(cmd.OutOrStdout(), string(formattedBytes))
+			fmt.Fprint(cmd.OutOrStdout(), string(formattedBytes))
 		}
 		return nil
 	},
