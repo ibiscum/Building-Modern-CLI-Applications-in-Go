@@ -88,6 +88,9 @@ func (f FlatFile) List() ([]*models.Audio, error) {
 		return nil, err
 	}
 	metadataFilePath := filepath.Join(dirname, "audiofile")
+	if strings.Contains(metadataFilePath, "/") || strings.Contains(metadataFilePath, "\\") || strings.Contains(metadataFilePath, "..") {
+		return nil, fmt.Errorf("invalid file name")
+	}
 	if _, err := os.Stat(metadataFilePath); errors.Is(err, os.ErrNotExist) {
 		_ = os.Mkdir(metadataFilePath, os.ModePerm)
 	}
