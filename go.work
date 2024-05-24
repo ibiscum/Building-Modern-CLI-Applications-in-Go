@@ -9,5 +9,6 @@ use (
 	./Chapter06/audiofile
 	./Chapter06a
 	./Chapter07/audiofile
+    ./Chapter07a
 	./Chapter08/audiofile
 )

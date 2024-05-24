@@ -114,9 +114,14 @@ func (f FlatFile) Delete(id string) error {
 		return err
 	}
 	audioIDFilePath := filepath.Join(dirname, "audiofile", id)
+	if strings.Contains(audioIDFilePath, "/") || strings.Contains(audioIDFilePath, "\\") || strings.Contains(audioIDFilePath, "..") {
+		return fmt.Errorf("invalid file name")
+	}
+
 	if _, err = os.Stat(audioIDFilePath); os.IsNotExist(err) {
 		return fmt.Errorf("not found: %v", err)
 	}
+
 	err = os.RemoveAll(audioIDFilePath)
 	if err != nil {
 		return err

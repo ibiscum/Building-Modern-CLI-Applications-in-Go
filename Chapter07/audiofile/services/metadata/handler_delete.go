@@ -2,6 +2,7 @@ package metadata
 
 import (
 	"fmt"
+	"html"
 	"io"
 	"net/http"
 	"strings"
@@ -27,5 +28,5 @@ func (m *MetadataService) deleteHandler(res http.ResponseWriter, req *http.Reque
 		return
 	}
 	res.WriteHeader(http.StatusOK)
-	io.WriteString(res, fmt.Sprintf("successfully deleted audio with id: %s", id))
+	io.WriteString(res, fmt.Sprintf("successfully deleted audio with id: %s", html.EscapeString(id)))
 }
