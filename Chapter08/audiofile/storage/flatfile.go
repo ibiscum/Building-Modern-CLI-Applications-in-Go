@@ -24,14 +24,21 @@ func (f FlatFile) GetByID(id string) (*models.Audio, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	metadataFilePath := filepath.Join(dirname, "audiofile", id, "metadata.json")
+	if strings.Contains(metadataFilePath, "/") || strings.Contains(metadataFilePath, "\\") || strings.Contains(metadataFilePath, "..") {
+		return nil, fmt.Errorf("invalid file name")
+	}
+
 	if _, err := os.Stat(metadataFilePath); errors.Is(err, os.ErrNotExist) {
 		_ = os.Mkdir(metadataFilePath, os.ModePerm)
 	}
+
 	file, err := os.ReadFile(metadataFilePath)
 	if err != nil {
 		return nil, err
 	}
+
 	data := models.Audio{}
 	err = json.Unmarshal([]byte(file), &data)
 	return &data, err

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/marianina8/audiofile/cmd"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter09/audiofile/cmd"
 	"github.com/spf13/cobra/doc"
 )
 

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter09/audiofile/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

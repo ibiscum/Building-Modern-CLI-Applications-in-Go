@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Generate linux builds
-    echo "installing for linux..."  
-    echo "installing sleep..."
-    go install cmd/sleep/sleep.go
+echo "installing for linux..."
+echo "installing sleep..."
+go install cmd/sleep/sleep.go
