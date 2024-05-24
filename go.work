@@ -11,4 +11,5 @@ use (
 	./Chapter07/audiofile
     ./Chapter07a
 	./Chapter08/audiofile
+    ./Chapter08a
 )

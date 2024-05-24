@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"Chapter08/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter08/audiofile/models"
 )
 
 func Print(b []byte, jsonFormat bool) ([]byte, error) {

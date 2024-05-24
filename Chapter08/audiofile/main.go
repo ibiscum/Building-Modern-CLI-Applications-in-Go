@@ -1,6 +1,6 @@
 package main
 
-import "Chapter08/audiofile/cmd"
+import "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter08/audiofile/cmd"
 
 func main() {
 	cmd.Configure()

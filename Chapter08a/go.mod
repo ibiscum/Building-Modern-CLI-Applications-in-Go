@@ -1,7 +1,7 @@
-module Chapter08/Chapter-8
+module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter08a
 
-go 1.19
+go 1.22
 
-require github.com/mattn/go-isatty v0.0.16
+require github.com/mattn/go-isatty v0.0.20
 
-require golang.org/x/sys v0.16.0 // indirect
+require golang.org/x/sys v0.20.0 // indirect
