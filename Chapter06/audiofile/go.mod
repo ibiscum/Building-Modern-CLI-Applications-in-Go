@@ -1,6 +1,6 @@
 module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter06/audiofile
 
-go 1.22
+go 1.22.1
 
 require (
 	github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8

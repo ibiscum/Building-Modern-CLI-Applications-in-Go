@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/utils"
 
-	metadataService "github.com/marianina8/audiofile/services/metadata"
+	metadataService "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10/audiofile/services/metadata"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

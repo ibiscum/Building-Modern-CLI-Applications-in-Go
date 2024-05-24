@@ -1,4 +1,4 @@
-go 1.22
+go 1.22.1
 
 use (
 	./Chapter03/audiofile
@@ -9,8 +9,9 @@ use (
 	./Chapter06/audiofile
 	./Chapter06a
 	./Chapter07/audiofile
-    ./Chapter07a
+	./Chapter07a
 	./Chapter08/audiofile
-    ./Chapter08a
-    ./Chapter09/audiofile
+	./Chapter08a
+	./Chapter09/audiofile
+	./Chapter09a
 )

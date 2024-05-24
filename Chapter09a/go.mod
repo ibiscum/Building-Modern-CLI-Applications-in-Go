@@ -1,6 +1,6 @@
 module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter09a
 
-go 1.19
+go 1.22.1
 
 require (
 	github.com/fatih/color v1.17.0

@@ -1,6 +1,6 @@
 module github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04b
 
-go 1.22
+go 1.22.1
 
 require (
 	github.com/spf13/cobra v1.8.0
