@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"time"
@@ -61,13 +62,16 @@ var searchCmd = &cobra.Command{
 		if plainFormat {
 			var audios models.AudioList
 			json.Unmarshal(b, &audios)
-			fmt.Fprintf(cmd.OutOrStdout(), audios.Plain())
+			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}
 		jsonFormat, err := cmd.Flags().GetBool("json")
+		if err != nil {
+			log.Fatal(err)
+		}
 		formattedBytes, err := utils.Print(b, jsonFormat)
 		if err != nil {
-			fmt.Fprintf(cmd.OutOrStdout(), string(formattedBytes))
+			fmt.Fprint(cmd.OutOrStdout(), string(formattedBytes))
 		}
 		return nil
 	},

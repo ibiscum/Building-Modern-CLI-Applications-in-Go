@@ -65,7 +65,8 @@ var deleteCmd = &cobra.Command{
 		}
 		utils.LogHTTPResponse(verbose, resp, b)
 		if strings.Contains(string(b), "success") && !silence {
-			fmt.Fprintf(cmd.OutOrStdout(), fmt.Sprintf("\U00002705 Successfully deleted audiofile (%s)!\n", id))
+			success := fmt.Sprintf("\U00002705 Successfully deleted audiofile (%s)!\n", id)
+			fmt.Fprint(cmd.OutOrStdout(), success)
 		} else if !silence {
 			fmt.Printf("\U0000274C Unsuccessful delete of audiofile (%s): %s\n", id, string(b))
 		}

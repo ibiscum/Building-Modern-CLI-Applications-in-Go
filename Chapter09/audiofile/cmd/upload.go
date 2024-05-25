@@ -120,9 +120,10 @@ filepath of the audiofile.`,
 			fmt.Println("Process response...")
 		}
 		if utils.IsaTTY() && runtime.GOOS != "windows" {
-			fmt.Fprintf(cmd.OutOrStdout(), fmt.Sprintf("%s Successfully uploaded!\n Audiofile ID: %s", checkMark, string(b)))
+			success := fmt.Sprintf("%s Successfully uploaded!\n Audiofile ID: %s", checkMark, string(b))
+			fmt.Fprint(cmd.OutOrStdout(), success)
 		} else {
-			fmt.Fprintf(cmd.OutOrStdout(), string(b))
+			fmt.Fprint(cmd.OutOrStdout(), string(b))
 		}
 		return nil
 	},
