@@ -4,7 +4,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
 	"os/exec"
 )
 

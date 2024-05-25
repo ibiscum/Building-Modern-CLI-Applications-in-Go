@@ -10,7 +10,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/marianina8/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/models"
 )
 
 func TestSearch(t *testing.T) {

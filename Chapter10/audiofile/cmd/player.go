@@ -77,7 +77,7 @@ func newTextInput(audioList *models.AudioList, updatedID chan<- int, updateText,
 			number, _ := strconv.Atoi(text)
 			audioListLength := len(*audioList)
 			if number >= audioListLength || number < 0 {
-				errorText <- fmt.Errorf("Id doesn't exist, Id needs to be between 0 and %d", audioListLength-1).Error()
+				errorText <- fmt.Errorf("id doesn't exist, Id needs to be between 0 and %d", audioListLength-1).Error()
 			} else {
 				updatedID <- number
 				if (*audioList)[number].Metadata.Tags.Title != "" && (*audioList)[number].Metadata.Tags.Artist != "" {

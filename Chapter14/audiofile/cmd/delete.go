@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
