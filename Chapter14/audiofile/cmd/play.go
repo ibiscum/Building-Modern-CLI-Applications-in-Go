@@ -3,8 +3,8 @@ package cmd
 import (
 	"encoding/json"
 
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/models"
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
 	"github.com/spf13/cobra"
 )
 

@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter11/audiofile/utils"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -24,7 +24,7 @@ const (
 var uploadCmd = &cobra.Command{
 	Use:   "upload",
 	Short: "Upload an audio file",
-	Long: `Upload an audio file by passing in the --filename or -f flag followed by the 
+	Long: `Upload an audio file by passing in the --filename or -f flag followed by the
 filepath of the audiofile.`,
 	Example:    `audiofile upload --filename ./audio/beatdoctor.mp3`,
 	SuggestFor: []string{"add"},

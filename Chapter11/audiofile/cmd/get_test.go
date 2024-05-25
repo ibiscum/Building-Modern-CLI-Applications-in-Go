@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/marianina8/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter11/audiofile/models"
 )
 
 func TestGet(t *testing.T) {

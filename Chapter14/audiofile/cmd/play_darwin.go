@@ -5,7 +5,7 @@ package cmd
 import (
 	"os/exec"
 
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
 	"github.com/pterm/pterm"
 )
 

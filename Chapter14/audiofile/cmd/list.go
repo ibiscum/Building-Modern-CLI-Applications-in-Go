@@ -7,8 +7,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/models"
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -30,13 +30,13 @@ and transcript if available.`,
 		if plainFormat {
 			var audios models.AudioList
 			json.Unmarshal(b, &audios)
-			fmt.Fprintf(cmd.OutOrStdout(), audios.Plain())
+			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}
 		jsonFormat, _ := cmd.Flags().GetBool("json")
 		formatedBytes, err := utils.Print(b, jsonFormat)
 		if err != nil {
-			fmt.Fprintf(cmd.OutOrStdout(), string(formatedBytes))
+			fmt.Fprint(cmd.OutOrStdout(), string(formatedBytes))
 		}
 		return nil
 	},
