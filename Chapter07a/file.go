@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -26,7 +27,10 @@ func file() {
 		fmt.Println("getting working directory: ", err)
 	}
 	fmt.Println("working directory: ", workingDir)
-	createFiles()
+	err = createFiles()
+	if err != nil {
+		log.Fatal(err)
+	}
 	err = printFiles(workingDir)
 	if err != nil {
 		fmt.Printf("Error printing files in %s\n", workingDir)
@@ -70,35 +74,46 @@ func createFiles() error {
 	filename3 := "file3"
 	f1, err := os.Create(filename1)
 	if err != nil {
-		return fmt.Errorf("error creating %s: %v\n", filename1, err)
+		return fmt.Errorf("error creating %s: %v", filename1, err)
 	}
 	defer f1.Close()
-	f1.WriteString("abc")
+	_, err = f1.WriteString("abc")
+	if err != nil {
+		return fmt.Errorf("error writing string: %v", err)
+	}
+
 	f2, err := os.Create(filename2)
 	if err != nil {
-		return fmt.Errorf("error creating %s: %v\n", filename2, err)
+		return fmt.Errorf("error creating %s: %v", filename2, err)
 	}
 	defer f2.Close()
-	f2.WriteString("123")
+	_, err = f2.WriteString("123")
+	if err != nil {
+		return fmt.Errorf("error writing string: %v", err)
+	}
+
 	f3, err := os.Create(filename3)
 	if err != nil {
 		return fmt.Errorf("error creating %s: %v", filename3, err)
 	}
 	defer f3.Close()
-	f3.WriteString("xyz")
+	_, err = f3.WriteString("xyz")
+	if err != nil {
+		return fmt.Errorf("error writing string: %v", err)
+	}
 	return nil
 }
 
 func createExamplesDir() (string, error) {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		return "", fmt.Errorf("getting user's home directory: %v\n", err)
+		return "", fmt.Errorf("getting user's home directory: %v", err)
 	}
 	fmt.Println("home directory: ", homeDir)
 	examplesDir := filepath.Join(homeDir, "examples")
 	err = os.Mkdir(examplesDir, os.FileMode(int(0777)))
 	if err != nil {
-		return "", fmt.Errorf("making directory error: %v\n", err)
+		return "", fmt.Errorf("making directory error: %v", err)
 	}
 	fmt.Println("created: ", examplesDir)
 	return examplesDir, nil
@@ -107,7 +122,7 @@ func createExamplesDir() (string, error) {
 func printFiles(dir string) error {
 	files, err := os.ReadDir(dir)
 	if err != nil {
-		return fmt.Errorf("read directory error: %s\n", err)
+		return fmt.Errorf("read directory error: %s", err)
 	}
 	fmt.Printf("files in %s:\n", dir)
 

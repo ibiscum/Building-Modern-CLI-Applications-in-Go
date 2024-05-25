@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"image"
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -30,13 +31,14 @@ import (
 )
 
 var audiofileID = -1
-var pID = 0
+
+// var pID = 0
 
 func newStopButton() (*button.Button, error) {
 	stopButton, err := button.New("Stop", func() error {
 		go func() error {
 			stopTheMusic()
-			pID = 0
+			// pID = 0
 			return nil
 		}()
 		return nil
@@ -55,7 +57,8 @@ func newPlayButton(audioList *models.AudioList, playID <-chan int) (*button.Butt
 		stopTheMusic()
 		go func() {
 			if audiofileID <= len(*audioList)-1 && audiofileID >= 0 {
-				pID, _ = play((*audioList)[audiofileID].Path, true)
+				pID, _ := play((*audioList)[audiofileID].Path, true)
+				log.Println(pID)
 			}
 		}()
 		return nil
@@ -118,12 +121,22 @@ func newMetadataDisplay(t terminalapi.Terminal, audioList *models.AudioList, upd
 				continue
 			}
 			idString := strconv.Itoa(id)
-			metadata.Write("[id="+idString+"]\n\n", text.WriteReplace())
+			err := metadata.Write("[id="+idString+"]\n\n", text.WriteReplace())
+			if err != nil {
+				log.Println(err)
+			}
 			textExists := false
 			if (*audioList)[id].Metadata.Tags.Title != "" {
 				textExists = true
-				metadata.Write("Title: ", text.WriteCellOpts(cell.FgColor(cell.ColorNumber(33))))
-				metadata.Write((*audioList)[id].Metadata.Tags.Title)
+				err := metadata.Write("Title: ", text.WriteCellOpts(cell.FgColor(cell.ColorNumber(33))))
+				if err != nil {
+					log.Println(err)
+				}
+
+				err = metadata.Write((*audioList)[id].Metadata.Tags.Title)
+				if err != nil {
+					log.Println(err)
+				}
 				metadata.Write("\n")
 			}
 			if (*audioList)[id].Metadata.Tags.AlbumArtist != "" {
@@ -191,13 +204,19 @@ func newMetadataDisplay(t terminalapi.Terminal, audioList *models.AudioList, upd
 func newLibraryContent(audioList *models.AudioList) (*text.Text, error) {
 	libraryContent, err := text.New(text.RollContent(), text.WrapAtWords())
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 	for i, audiofile := range *audioList {
 		if audiofile.Metadata.Tags.Title != "" && audiofile.Metadata.Tags.Artist != "" {
-			libraryContent.Write(fmt.Sprintf("[id=%d] %s by %s\n", i, audiofile.Metadata.Tags.Title, audiofile.Metadata.Tags.Artist))
+			err := libraryContent.Write(fmt.Sprintf("[id=%d] %s by %s\n", i, audiofile.Metadata.Tags.Title, audiofile.Metadata.Tags.Artist))
+			if err != nil {
+				return nil, err
+			}
 		} else {
-			libraryContent.Write(fmt.Sprintf("[id=%d] %s\n", i, filepath.Base(audiofile.Path)))
+			err := libraryContent.Write(fmt.Sprintf("[id=%d] %s\n", i, filepath.Base(audiofile.Path)))
+			if err != nil {
+				return nil, err
+			}
 		}
 	}
 	return libraryContent, nil
@@ -380,7 +399,7 @@ func newStreamingTitle(ctx context.Context, t terminalapi.Terminal, updateText <
 					// text size and terminal size are known.
 					capacity = sd.Capacity()
 				}
-				if t.Size().Eq(image.ZP) || !t.Size().Eq(termSize) {
+				if t.Size().Eq(image.Point{}) || !t.Size().Eq(termSize) {
 					// Update the capacity initially the first time the
 					// terminal reports a non-zero size and then every time the
 					// terminal resizes.
@@ -427,44 +446,44 @@ func newStreamingTitle(ctx context.Context, t terminalapi.Terminal, updateText <
 	return sd, nil
 }
 
-func rotate(inputs []rune, step int) []rune {
-	return append(inputs[step:], inputs[:step]...)
-}
+// func rotate(inputs []rune, step int) []rune {
+// 	return append(inputs[step:], inputs[:step]...)
+// }
 
 // newRollText creates a new Text widget that displays rolling text.
-func newRollText(ctx context.Context) (*text.Text, error) {
-	t, err := text.New(text.RollContent())
-	if err != nil {
-		return nil, err
-	}
+// func newRollText(ctx context.Context) (*text.Text, error) {
+// 	t, err := text.New(text.RollContent())
+// 	if err != nil {
+// 		return nil, err
+// 	}
 
-	i := 0
-	go periodic(ctx, 1*time.Second, func() error {
-		if err := t.Write(fmt.Sprintf("Writing line %d.\n", i), text.WriteCellOpts(cell.FgColor(cell.ColorNumber(142)))); err != nil {
-			return err
-		}
-		i++
-		return nil
-	})
-	return t, nil
-}
+// 	i := 0
+// 	go periodic(ctx, 1*time.Second, func() error {
+// 		if err := t.Write(fmt.Sprintf("Writing line %d.\n", i), text.WriteCellOpts(cell.FgColor(cell.ColorNumber(142)))); err != nil {
+// 			return err
+// 		}
+// 		i++
+// 		return nil
+// 	})
+// 	return t, nil
+// }
 
 // periodic executes the provided closure periodically every interval.
 // Exits when the context expires.
-func periodic(ctx context.Context, interval time.Duration, fn func() error) {
-	ticker := time.NewTicker(interval)
-	defer ticker.Stop()
-	for {
-		select {
-		case <-ticker.C:
-			if err := fn(); err != nil {
-				panic(err)
-			}
-		case <-ctx.Done():
-			return
-		}
-	}
-}
+// func periodic(ctx context.Context, interval time.Duration, fn func() error) {
+// 	ticker := time.NewTicker(interval)
+// 	defer ticker.Stop()
+// 	for {
+// 		select {
+// 		case <-ticker.C:
+// 			if err := fn(); err != nil {
+// 				panic(err)
+// 			}
+// 		case <-ctx.Done():
+// 			return
+// 		}
+// 	}
+// }
 
 // textState creates a rotated state for the text we are displaying.
 func textState(text string, capacity, step int) []rune {
@@ -509,7 +528,10 @@ func stopTheMusic() {
 		if p.Executable() == playerExecutable {
 			proc, _ := os.FindProcess(p.Pid())
 			if proc != nil {
-				proc.Kill()
+				err := proc.Kill()
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		}
 	}

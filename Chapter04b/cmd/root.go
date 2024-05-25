@@ -9,9 +9,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const (
-	storageFile = "storage/result"
-)
+// const (
+// 	storageFile = "storage/result"
+// )
 
 var (
 	value = 0.0

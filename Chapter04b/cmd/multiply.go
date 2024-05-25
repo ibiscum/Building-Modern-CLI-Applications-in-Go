@@ -5,6 +5,7 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 
 	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04b/storage"
@@ -31,7 +32,10 @@ var multiplyCmd = &cobra.Command{
 		}
 		value = storage.GetValue()
 		value *= floatVal
-		storage.SetValue(value)
+		err = storage.SetValue(value)
+		if err != nil {
+			log.Fatal(err)
+		}
 		fmt.Printf("%f\n", value)
 	},
 }

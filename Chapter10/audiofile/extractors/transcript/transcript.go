@@ -97,7 +97,6 @@ func Extract(m *models.Audio) error {
 			fmt.Println("m.Metadata.Transcript: ", m.Metadata.Transcript)
 
 			break
-		} else {
 		}
 	}
 

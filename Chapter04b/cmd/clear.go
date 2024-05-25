@@ -5,6 +5,7 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter04b/storage"
 	"github.com/spf13/cobra"
@@ -19,7 +20,10 @@ var clearCmd = &cobra.Command{
 			fmt.Println("command does not accept args")
 			return
 		}
-		storage.SetValue(0)
+		err := storage.SetValue(0)
+		if err != nil {
+			log.Fatal(err)
+		}
 		fmt.Println(0.0)
 	},
 }

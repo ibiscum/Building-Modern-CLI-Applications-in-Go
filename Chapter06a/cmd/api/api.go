@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -28,11 +29,14 @@ func timeoutHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("got /timeout request")
 	<-time.After(time.Second * 2)
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("this took a long time"))
+	_, err := w.Write([]byte("this took a long time"))
+	log.Fatal(err)
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("got /error request")
 	w.WriteHeader(http.StatusInternalServerError)
-	w.Write([]byte("internal service error"))
+	_, err := w.Write([]byte("internal service error"))
+	log.Fatal(err)
+
 }

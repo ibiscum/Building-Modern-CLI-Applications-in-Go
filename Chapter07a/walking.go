@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/fs"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -13,7 +14,7 @@ func walking() {
 		panic(err)
 	}
 	dir1 := filepath.Join(workingDir, "dir1")
-	filepath.WalkDir(dir1, func(path string, d fs.DirEntry, err error) error {
+	err = filepath.WalkDir(dir1, func(path string, d fs.DirEntry, err error) error {
 		if !d.IsDir() {
 			contents, err := os.ReadFile(path)
 			if err != nil {
@@ -23,4 +24,7 @@ func walking() {
 		}
 		return nil
 	})
+	if err != nil {
+		log.Fatal(err)
+	}
 }

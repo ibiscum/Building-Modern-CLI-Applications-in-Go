@@ -12,7 +12,10 @@ func AskForID() (string, error) {
 	prompt := &survey.Input{
 		Message: "What is the id of the audiofile?",
 	}
-	survey.AskOne(prompt, &id)
+	err := survey.AskOne(prompt, &id)
+	if err != nil {
+		return "AskOne: ", err
+	}
 	if id == "" {
 		return "", missingRequiredArumentError("id")
 	}
