@@ -1,19 +1,16 @@
 
 .PHONY: all test clean lint
 
-all: clean test
+all: clean test lint
 
 build-darwin:
-	go build -tags darwin -o bin/audiofile main.go
-	chmod +x bin/audiofile
+    go build -tags darwin -o bin/audiofile main.go
+    chmod +x bin/audiofile
 
 manpages:
-	mkdir -p pages
-	go run documentation/main.go
+    mkdir -p pages
+    go run documentation/main.go
 
 clean:
-	go clean -cache -testcache -modcache
-	rm -rf bin/
-
-lint:
-	go list -f '{{.Dir}}/...' -m | xargs golangci-lint run
+    go clean -cache -testcache -modcache
+    rm -rf bin/
