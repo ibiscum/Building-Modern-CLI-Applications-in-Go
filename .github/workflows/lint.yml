@@ -37,7 +37,17 @@ jobs:
           # Note: By default, the `.golangci.yml` file should be at the root of the repository.
           # The location of the configuration file can be changed by using `--config=`
           # args: --timeout=30m --config=/my/path/.golangci.yml --issues-exit-code=0
-          args: --timeout=30m ./Chapter03/audiofile/... ./Chapter04/audiofile/...
+          # golangci-lint needs to be run separately for every Go module, and
+          # its GitHub Action doesn't provide any way to do that. Have it fetch
+          # the golangci-lint binary, trick it into not running by sending only
+          # `--help`, then run the full set of lints below. DO NOT run separate
+          # modules as separate golangci-lint-action steps. Its post run caching
+          # can be extremely slow, and that's amplified in a very painful way if
+          # it needs to be run multiple times.
+          args: --help
+      - name: run lint
+        run: make lint
+
 
           # Optional: show only new issues if it's a pull request. The default value is `false`.
           # only-new-issues: true

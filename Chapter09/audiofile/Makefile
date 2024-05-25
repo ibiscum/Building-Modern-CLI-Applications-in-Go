@@ -1,5 +1,5 @@
 
-.PHONY: all test clean
+.PHONY: all test clean lint
 
 all: clean test
 
@@ -14,3 +14,6 @@ manpages:
 clean:
 	go clean -cache -testcache -modcache
 	rm -rf bin/
+
+lint:
+	go list -f '{{.Dir}}/...' -m | xargs golangci-lint run
