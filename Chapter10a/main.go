@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/marianina8/Chapter-10/dashboard"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter10a/dashboard"
 )
 
 func main() {
