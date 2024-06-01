@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/marianina8/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/models"
 	"github.com/mitchellh/go-ps"
 	"github.com/mum4k/termdash"
 	"github.com/mum4k/termdash/align"
@@ -209,7 +209,7 @@ func newLibraryContent(audioList *models.AudioList) (*text.Text, error) {
 var playerCmd = &cobra.Command{
 	Use:   "player",
 	Short: "Launch player dashboard",
-	Long: `Launches a terminal player dashboard where you can view 
+	Long: `Launches a terminal player dashboard where you can view
 	all uploaded songs metadata, select and play from a dashboard.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		audioList := &models.AudioList{}

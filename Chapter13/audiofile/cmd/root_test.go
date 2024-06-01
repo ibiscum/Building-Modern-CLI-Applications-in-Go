@@ -3,7 +3,7 @@
 package cmd
 
 import (
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 )

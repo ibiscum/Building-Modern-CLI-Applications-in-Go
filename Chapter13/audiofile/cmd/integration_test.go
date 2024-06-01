@@ -6,8 +6,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/marianina8/audiofile/models"
-	"github.com/marianina8/audiofile/utils"
+
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
 	"github.com/spf13/viper"
 
 	"io/ioutil"

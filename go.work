@@ -15,6 +15,9 @@ use (
 	./Chapter09/audiofile
 	./Chapter09a
 	./Chapter10/audiofile
+	./Chapter10a
 	./Chapter11/audiofile
+	./Chapter12/audiofile
+	./Chapter13/audiofile
 	./Chapter14/audiofile
 )

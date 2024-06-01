@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/marianina8/audiofile/cmd"
-	"github.com/marianina8/audiofile/utils"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter12/audiofile/cmd"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter12/audiofile/utils"
 )
 
 func main() {

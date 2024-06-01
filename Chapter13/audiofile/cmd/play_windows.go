@@ -4,8 +4,9 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/marianina8/audiofile/utils"
 	"os/exec"
+
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
 )
 
 func play(audiofilePath string, verbose bool) (int, error) {

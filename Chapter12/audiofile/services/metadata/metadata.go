@@ -1,8 +1,8 @@
 package metadata
 
 import (
-	"github.com/marianina8/audiofile/internal/interfaces"
-	"github.com/marianina8/audiofile/storage"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter12/audiofile/internal/interfaces"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter12/audiofile/storage"
 
 	"fmt"
 	"net/http"
