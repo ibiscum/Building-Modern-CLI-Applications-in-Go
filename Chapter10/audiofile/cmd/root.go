@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"log"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -37,7 +38,9 @@ func Configure() {
 	viper.AddConfigPath("./configs")
 	viper.SetConfigName("cli")
 	viper.SetConfigType("json")
-	viper.ReadInConfig()
+	if err := viper.ReadInConfig(); err != nil {
+		log.Fatal(err)
+	}
 	viper.SetDefault("cli.hostname", "localhost")
 	viper.SetDefault("cli.port", 8000)
 }

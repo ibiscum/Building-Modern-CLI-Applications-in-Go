@@ -60,7 +60,10 @@ var searchCmd = &cobra.Command{
 		plainFormat, _ := cmd.Flags().GetBool("plain")
 		if plainFormat {
 			var audios models.AudioList
-			json.Unmarshal(b, &audios)
+			err := json.Unmarshal(b, &audios)
+			if err != nil {
+				return err
+			}
 			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}

@@ -52,7 +52,8 @@ func newStopButton() (*button.Button, error) {
 	return stopButton, nil
 }
 
-func newPlayButton(audioList *models.AudioList, playID <-chan int) (*button.Button, error) {
+// func newPlayButton(audioList *models.AudioList, playID <-chan int) (*button.Button, error) {
+func newPlayButton(audioList *models.AudioList) (*button.Button, error) {
 	playButton, err := button.New("Play", func() error {
 		stopTheMusic()
 		go func() {
@@ -109,7 +110,8 @@ func newErrorText(errors chan string) *text.Text {
 	return errorText
 }
 
-func newMetadataDisplay(t terminalapi.Terminal, audioList *models.AudioList, updatedID <-chan int) (*text.Text, error) {
+// func newMetadataDisplay(t terminalapi.Terminal, audioList *models.AudioList, updatedID <-chan int) (*text.Text, error) {
+func newMetadataDisplay(audioList *models.AudioList, updatedID <-chan int) (*text.Text, error) {
 	metadata, err := text.New(text.WrapAtWords(), text.RollContent())
 	if err != nil {
 		panic(err)
@@ -234,7 +236,10 @@ var playerCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		json.Unmarshal(b, &audioList)
+		err = json.Unmarshal(b, &audioList)
+		if err != nil {
+			return err
+		}
 
 		t, err := tcell.New(tcell.ColorMode(terminalapi.ColorMode256))
 		if err != nil {
@@ -247,12 +252,13 @@ var playerCmd = &cobra.Command{
 		updatedID := make(chan int)
 		updateText := make(chan string)
 		errors := make(chan string)
-		playID := make(chan int)
+		// playID := make(chan int)
 		input := newTextInput(audioList, updatedID, updateText, errors)
 
 		errorText := newErrorText(errors)
 
-		playButton, err := newPlayButton(audioList, playID)
+		// playButton, err := newPlayButton(audioList, playID)
+		playButton, err := newPlayButton(audioList)
 		if err != nil {
 			cancel()
 			return err
@@ -270,7 +276,8 @@ var playerCmd = &cobra.Command{
 			return err
 		}
 
-		metadataDisplay, err := newMetadataDisplay(t, audioList, updatedID)
+		// metadataDisplay, err := newMetadataDisplay(t, audioList, updatedID)
+		metadataDisplay, err := newMetadataDisplay(audioList, updatedID)
 		if err != nil {
 			cancel()
 			return err
