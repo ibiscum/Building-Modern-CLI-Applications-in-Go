@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -24,5 +25,8 @@ func (m *MetadataService) listHandler(res http.ResponseWriter, req *http.Request
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	io.WriteString(res, prettyJSON.String())
+	_, err = io.WriteString(res, prettyJSON.String())
+	if err != nil {
+		log.Fatal(err)
+	}
 }
