@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"log"
+
 	"github.com/spf13/cobra"
 )
 
@@ -14,7 +16,7 @@ var uploadCmd = &cobra.Command{
 	Short: "upload an audio or video file",
 	Long: `This command allows you to upload either an audio or video file for metadata extraction.
 	To pass in a filename, use the -f or --filename flag followed by the path of the file.
-	
+
 	Examples:
 	./audiofile-cli upload audio -f audio/beatdoctor.mp3
 	./audiofile-cli upload video --filename video/musicvideo.mp4`,
@@ -29,7 +31,10 @@ var uploadCmd = &cobra.Command{
 
 func init() {
 	uploadCmd.PersistentFlags().StringVarP(&Filename, "filename", "f", "", "file to upload")
-	uploadCmd.MarkPersistentFlagRequired("filename")
+	err := uploadCmd.MarkPersistentFlagRequired("filename")
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	rootCmd.AddCommand(uploadCmd)
 }
