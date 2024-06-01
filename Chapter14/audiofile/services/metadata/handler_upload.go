@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 
@@ -57,7 +58,10 @@ func (m *MetadataService) uploadHandler(res http.ResponseWriter, req *http.Reque
 	}
 	audio.Status = "Initiating"
 
-	io.WriteString(res, id)
+	_, err = io.WriteString(res, id)
+	if err != nil {
+		log.Fatal(err)
+	}
 	go func() {
 		var errors []string
 

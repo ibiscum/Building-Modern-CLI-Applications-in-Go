@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 
 	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/models"
@@ -29,7 +30,10 @@ and transcript if available.`,
 		plainFormat, _ := cmd.Flags().GetBool("plain")
 		if plainFormat {
 			var audios models.AudioList
-			json.Unmarshal(b, &audios)
+			err = json.Unmarshal(b, &audios)
+			if err != nil {
+				log.Fatal(err)
+			}
 			fmt.Fprint(cmd.OutOrStdout(), audios.Plain())
 			return nil
 		}

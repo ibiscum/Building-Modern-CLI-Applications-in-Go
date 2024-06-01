@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"testing"
 
@@ -31,8 +32,16 @@ func TestGet(t *testing.T) {
 		t.Fatal(err)
 	}
 	var audio1, audio2 models.Audio
-	json.Unmarshal(actualBytes, &audio1)
-	json.Unmarshal(expectedBytes, &audio2)
+	err = json.Unmarshal(actualBytes, &audio1)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = json.Unmarshal(expectedBytes, &audio2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	
 	if !(audio1.Id == audio2.Id &&
 		audio1.Metadata.Tags.Album == audio2.Metadata.Tags.Album &&
 		audio1.Metadata.Tags.AlbumArtist == audio2.Metadata.Tags.AlbumArtist &&

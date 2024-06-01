@@ -81,7 +81,12 @@ func InitCLILogger() {
 	if err != nil {
 		panic(err)
 	}
-	defer Logger.Sync()
+	defer func() {
+		err := Logger.Sync()
+		if err != nil {
+			panic(err)
+		}
+	}()
 }
 
 func InitAPILogger() {
@@ -102,7 +107,12 @@ func InitAPILogger() {
 	if err != nil {
 		panic(err)
 	}
-	defer Logger.Sync()
+	defer func() {
+		err := Logger.Sync()
+		if err != nil {
+			panic(err)
+		}
+	}()
 }
 
 func timeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {

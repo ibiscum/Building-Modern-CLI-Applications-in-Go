@@ -3,6 +3,7 @@
 package cmd
 
 import (
+	"log"
 	"os/exec"
 
 	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter14/audiofile/utils"
@@ -23,7 +24,10 @@ func play(audiofilePath string, verbose bool) (int, error) {
 		return 0, utils.Error("\n  running aplay command: %v", err, verbose)
 	}
 	if utils.IsaTTY() && verbose {
-		spinnerInfo.Stop()
+		err := spinnerInfo.Stop()
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 	return cmd.Process.Pid, nil
 }

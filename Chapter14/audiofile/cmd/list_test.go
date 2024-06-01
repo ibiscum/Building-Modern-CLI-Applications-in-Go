@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"testing"
 
@@ -31,8 +32,15 @@ func TestList(t *testing.T) {
 		t.Fatal(err)
 	}
 	var audioList1, audioList2 models.AudioList
-	json.Unmarshal(actualBytes, &audioList1)
-	json.Unmarshal(expectedBytes, &audioList2)
+	err = json.Unmarshal(actualBytes, &audioList1)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = json.Unmarshal(expectedBytes, &audioList2)
+	if err != nil {
+		log.Fatal(err)
+	}
 	if len(audioList1) != len(audioList2) {
 		t.Fatalf("expected length of list \"%d\" got \"%d\"", len(audioList2), len(audioList1))
 	}
