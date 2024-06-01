@@ -27,7 +27,8 @@ func (f FlatFile) GetByID(id string) (*models.Audio, error) {
 
 	metadataFilePath := filepath.Join(dirname, "audiofile", id, "metadata.json")
 	if strings.Contains(metadataFilePath, "/") || strings.Contains(metadataFilePath, "\\") || strings.Contains(metadataFilePath, "..") {
-		return nil, fmt.Errorf("invalid file name")
+		err := fmt.Errorf("invalid file name: %v", metadataFilePath)
+		return nil, err
 	}
 
 	if _, err := os.Stat(metadataFilePath); errors.Is(err, os.ErrNotExist) {
@@ -121,6 +122,10 @@ func (f FlatFile) Delete(id string) error {
 		return err
 	}
 	audioIDFilePath := filepath.Join(dirname, "audiofile", id)
+	if strings.Contains(audioIDFilePath, "/") || strings.Contains(audioIDFilePath, "\\") || strings.Contains(audioIDFilePath, "..") {
+		err := fmt.Errorf("invalid file name: %v", audioIDFilePath)
+		return err
+	}
 	if _, err = os.Stat(audioIDFilePath); os.IsNotExist(err) {
 		return fmt.Errorf("not found: %v", err)
 	}
