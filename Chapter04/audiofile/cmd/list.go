@@ -13,17 +13,17 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all audio files",
-	Long: `List audio file metadata in JSON format.  Data includes id, tags, 
-and transcript if available.`,
+	Long:  `List audio file metadata in JSON format.  Data includes id, tags, and transcript if available.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		client := &http.Client{}
-
-		path := "http://localhost/list"
+		path := "http://localhost:8000/list"
 		payload := &bytes.Buffer{}
+
 		req, err := http.NewRequest(http.MethodGet, path, payload)
 		if err != nil {
 			return err
 		}
+
 		resp, err := client.Do(req)
 		if err != nil {
 			return err

@@ -10,8 +10,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "audiofile",
 	Short: "A command line interface to interact with the Audiofile service",
-	Long: `A command line interface allows you to interact with the Audiofile service.
-Basic commands include: get, list, and upload.`,
+	Long:  "A command line interface allows you to interact with the Audiofile service. Basic commands include: get, list, and upload.",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

@@ -23,7 +23,7 @@ var getCmd = &cobra.Command{
 			return err
 		}
 		params := "id=" + url.QueryEscape(id)
-		path := fmt.Sprintf("http://localhost/request?%s", params)
+		path := fmt.Sprintf("http://localhost:8000/request?%s", params)
 		payload := &bytes.Buffer{}
 
 		req, err := http.NewRequest(http.MethodGet, path, payload)

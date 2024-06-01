@@ -16,7 +16,7 @@ import (
 var uploadCmd = &cobra.Command{
 	Use:   "upload",
 	Short: "Upload an audio file",
-	Long: `Upload an audio file by passing in the --filename or -f flag followed by the 
+	Long: `Upload an audio file by passing in the --filename or -f flag followed by the
 filepath of the audiofile.`,
 	SuggestFor: []string{"add"},
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -27,7 +27,7 @@ filepath of the audiofile.`,
 			return err
 		}
 		fmt.Println("Uploading", filename, "...")
-		url := "http://localhost/upload"
+		url := "http://localhost:8000/upload"
 		payload := &bytes.Buffer{}
 		multipartWriter := multipart.NewWriter(payload)
 		file, err := os.Open(filename)
