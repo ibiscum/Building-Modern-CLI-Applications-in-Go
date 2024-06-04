@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"log"
 	"path/filepath"
 
 	survey "github.com/AlecAivazis/survey/v2"
@@ -12,7 +13,10 @@ func AskForID() (string, error) {
 	prompt := &survey.Input{
 		Message: "What is the id of the audiofile?",
 	}
-	survey.AskOne(prompt, &id)
+	err := survey.AskOne(prompt, &id)
+	if err != nil {
+		log.Fatal(err)
+	}
 	if id == "" {
 		return "", missingRequiredArumentError("id")
 	}
@@ -28,7 +32,10 @@ func AskForFilename() (string, error) {
 			return files
 		},
 	}
-	survey.AskOne(prompt, &file)
+	err := survey.AskOne(prompt, &file)
+	if err != nil {
+		log.Fatal(err)
+	}
 	if file == "" {
 		return "", missingRequiredArumentError("file")
 	}
@@ -40,7 +47,10 @@ func AskForValue() (string, error) {
 	prompt := &survey.Input{
 		Message: "\U0001F50DWhat value are you searching for?",
 	}
-	survey.AskOne(prompt, &value)
+	err := survey.AskOne(prompt, &value)
+	if err != nil {
+		log.Fatal(err)
+	}
 	if value == "" {
 		return "", missingRequiredArumentError("value")
 	}

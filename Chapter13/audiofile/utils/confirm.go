@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"log"
+
 	survey "github.com/AlecAivazis/survey/v2"
 )
 
@@ -9,6 +11,9 @@ func Confirm(confirmationText string) bool {
 	prompt := &survey.Confirm{
 		Message: confirmationText,
 	}
-	survey.AskOne(prompt, &confirmed)
+	err := survey.AskOne(prompt, &confirmed)
+	if err != nil {
+		log.Fatal(err)
+	}
 	return confirmed
 }

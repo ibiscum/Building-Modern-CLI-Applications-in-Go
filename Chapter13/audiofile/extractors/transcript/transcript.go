@@ -37,7 +37,10 @@ func Extract(m *models.Audio) error {
 
 	// Decode json and store it in a map
 	var result map[string]interface{}
-	json.NewDecoder(res.Body).Decode(&result)
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Print the upload_url
 	fmt.Println(result["upload_url"])
@@ -66,7 +69,10 @@ func Extract(m *models.Audio) error {
 
 	defer res.Body.Close()
 
-	json.NewDecoder(res.Body).Decode(&result)
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Print the id of the transcribed audio
 	fmt.Println(result["id"])
@@ -87,7 +93,10 @@ func Extract(m *models.Audio) error {
 
 		defer res.Body.Close()
 
-		json.NewDecoder(res.Body).Decode(&result)
+		err = json.NewDecoder(res.Body).Decode(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		// Check status and print the transcribed text
 		if result["status"] == "completed" {
