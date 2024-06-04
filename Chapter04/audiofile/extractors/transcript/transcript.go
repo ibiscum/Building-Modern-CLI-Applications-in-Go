@@ -31,13 +31,16 @@ func Extract(m *models.Audio) error {
 	req.Header.Set("authorization", apiKey)
 	res, err := client.Do(req)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatal(err)
 	}
 	defer res.Body.Close()
 
 	// Decode json and store it in a map
 	var result map[string]interface{}
-	json.NewDecoder(res.Body).Decode(&result)
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Print the upload_url
 	fmt.Println(result["upload_url"])
@@ -51,7 +54,7 @@ func Extract(m *models.Audio) error {
 	jsonData, err := json.Marshal(values)
 
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatal(err)
 	}
 
 	// Setup HTTP client and set header
@@ -61,12 +64,15 @@ func Extract(m *models.Audio) error {
 	req.Header.Set("authorization", apiKey)
 	res, err = client.Do(req)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatal(err)
 	}
 
 	defer res.Body.Close()
 
-	json.NewDecoder(res.Body).Decode(&result)
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Print the id of the transcribed audio
 	fmt.Println(result["id"])
@@ -82,12 +88,15 @@ func Extract(m *models.Audio) error {
 		req.Header.Set("authorization", apiKey)
 		res, err = client.Do(req)
 		if err != nil {
-			log.Fatalln(err)
+			log.Fatal(err)
 		}
 
 		defer res.Body.Close()
 
-		json.NewDecoder(res.Body).Decode(&result)
+		err = json.NewDecoder(res.Body).Decode(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		// Check status and print the transcribed text
 		if result["status"] == "completed" {
