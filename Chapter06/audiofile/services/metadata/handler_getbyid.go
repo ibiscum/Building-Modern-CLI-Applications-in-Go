@@ -3,6 +3,7 @@ package metadata
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -31,5 +32,8 @@ func (m *MetadataService) getByIDHandler(res http.ResponseWriter, req *http.Requ
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	io.WriteString(res, audioString)
+	_, err = io.WriteString(res, audioString)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
