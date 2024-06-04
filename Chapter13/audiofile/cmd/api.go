@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"log"
 
 	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter13/audiofile/utils"
 
@@ -37,6 +38,9 @@ func configure() {
 	viper.AddConfigPath("./configs")
 	viper.SetConfigName("api")
 	viper.SetConfigType("json")
-	viper.ReadInConfig()
+	err := viper.ReadInConfig()
+	if err != nil {
+		log.Fatal(err)
+	}
 	viper.SetDefault("api.port", 8000)
 }

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -81,7 +82,12 @@ func InitCLILogger() {
 	if err != nil {
 		panic(err)
 	}
-	defer Logger.Sync()
+	defer func() {
+		err = Logger.Sync()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 }
 
 func InitAPILogger() {
@@ -102,7 +108,12 @@ func InitAPILogger() {
 	if err != nil {
 		panic(err)
 	}
-	defer Logger.Sync()
+	defer func() {
+		err := Logger.Sync()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}()
 }
 
 func timeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {

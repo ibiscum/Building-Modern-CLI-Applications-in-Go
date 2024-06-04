@@ -3,6 +3,7 @@ package metadata
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -34,5 +35,8 @@ func (m *MetadataService) getByIDHandler(res http.ResponseWriter, req *http.Requ
 		return
 	}
 	fmt.Println("getByIDHandler, response: ", audioString)
-	io.WriteString(res, audioString)
+	_, err = io.WriteString(res, audioString)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
