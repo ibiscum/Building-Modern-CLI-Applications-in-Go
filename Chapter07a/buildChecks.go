@@ -1,4 +1,4 @@
-//  go:build buildChecks
+// _go:build buildChecks
 
 package main
 

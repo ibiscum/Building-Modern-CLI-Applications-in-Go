@@ -2,3 +2,5 @@ github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8 h1:OtSeLS5y0Uy01jaKK4m
 github.com/dhowden/tag v0.0.0-20240417053706-3d75831295e8/go.mod h1:apkPC/CR3s48O2D7Y++n1XWEpgPNNCjXYga3PPbJe2E=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile v0.0.0-20241226175206-5bb12250605b h1:D0S0+Biz7OuepxE2GKXYgrgKodMaeob1BGzignEN4Xk=
+github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile v0.0.0-20241226175206-5bb12250605b/go.mod h1:6gyUoioLBrzn5wV/nLdggLKT3ntOYcimNlFz05+H7Vw=

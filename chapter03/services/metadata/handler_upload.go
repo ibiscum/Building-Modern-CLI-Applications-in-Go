@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/extractors/tags"
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/extractors/transcript"
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/chapter03/extractors/tags"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/chapter03/extractors/transcript"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/chapter03/models"
 )
 
 func (m *MetadataService) uploadHandler(res http.ResponseWriter, req *http.Request) {

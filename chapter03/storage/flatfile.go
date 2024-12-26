@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/models"
+	"github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/chapter03/models"
 
 	"github.com/google/uuid"
 )

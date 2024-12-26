@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	metadataService "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/Chapter03/audiofile/services/metadata"
+	metadataService "github.com/ibiscum/Building-Modern-CLI-Applications-in-Go/chapter03/services/metadata"
 )
 
 func main() {
